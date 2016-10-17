@@ -23,13 +23,16 @@ factories:
       planks:
         material: WOOD
         durability: -1
-        amount: 1024
+        amount: 256
       stone:
         material: STONE
-        amount: 256
+        amount: 64
       bread:
         material: BREAD
-        amount: 32
+        amount: 16
+      glass:
+        material: GLASS
+        amount: 16
     recipes:
     - Smelt_Stone_Basic
     - Cut_any_type_of_Plank_Basic
@@ -1220,9 +1223,18 @@ recipes:
 #          dura:
 #            enchant: DURABILITY
 #        amount: 1
-       emerald:
-         material: DIRT
-         amount: 1
+#       emerald:
+#         material: DIRT
+#         amount: 1
+        furnace:
+            material: FURNACE
+            amount: 2
+        bread:
+            material: BREAD
+            amount: 2
+        wood:
+            material: WOOD
+            amount: 24
     health_gained: 1500
   Repair_Small_Factory:
     type: REPAIR
@@ -1319,7 +1331,8 @@ recipes:
   Bake_Bread_Basic:
     type: PRODUCTION
     name: Bake Bread
-    production_time: 20s
+    fuel_consumption_intervall: 2.5s
+    production_time: 15s
     input:
       wheat:
         material: WHEAT
@@ -1327,7 +1340,7 @@ recipes:
     output:
       bread:
         material: BREAD
-        amount: 27
+        amount: 32
   Bake_Cake:
     type: PRODUCTION
     name: Bake Cake
@@ -1414,7 +1427,8 @@ recipes:
   Burn_Charcoal_from_Logs_Basic:
     type: PRODUCTION
     name: Burn Charcoal from Logs
-    production_time: 16s
+    fuel_consumption_intervall: 3s
+    production_time: 18s
     input:
       log:
         material: LOG
@@ -1423,7 +1437,7 @@ recipes:
     output:
       charcoal:
         material: COAL
-        amount: 80
+        amount: 84
         durability: 1
   Burn_Charcoal_from_Logs_Advanced:
     type: PRODUCTION
@@ -2744,17 +2758,18 @@ recipes:
   Cut_any_type_of_Plank_Basic:
     type: WOODMAPPING
     name: Cut Planks
-    production_time: 5s
+    fuel_consumption_intervall: 2s
+    production_time: 12s
     input:
       log:
         material: LOG
         durability: -2
-        amount: 32
+        amount: 16
     output:
       planks:
         material: WOOD
         durability: -2
-        amount: 140
+        amount: 100
   Cut_any_type_of_Plank_Expert:
     type: WOODMAPPING
     name: Cut Planks Expert
@@ -4148,15 +4163,16 @@ recipes:
   Smelt_Stone_Basic:
     type: PRODUCTION
     name: Smelt Stone
-    production_time: 20s
+    fuel_consumption_intervall: 2s
+    production_time: 12s
     input:
       sobblestone:
         material: COBBLESTONE
-        amount: 128
+        amount: 64
     output:
       stone:
         material: STONE
-        amount: 140
+        amount: 108
   Smelt_Stone_Expert:
     type: PRODUCTION
     name: Smelt Stone
