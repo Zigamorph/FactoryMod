@@ -1213,7 +1213,8 @@ recipes:
   Repair_Rudimentary_Factory:
     type: REPAIR
     name: Repair Factory
-    production_time: 60s
+    fuel_consumption_intervall: 2s
+    production_time: 30s
     input:
 #      eye of ender:
 #        material: EYE_OF_ENDER 
@@ -1226,29 +1227,19 @@ recipes:
 #       emerald:
 #         material: DIRT
 #         amount: 1
-        furnace:
-            material: FURNACE
-            amount: 2
-        bread:
-            material: BREAD
-            amount: 2
+        stone:
+            material: STONE
+            amount: 64
         wood:
             material: WOOD
-            amount: 24
+            amount: 32
     health_gained: 1500
   Repair_Small_Factory:
     type: REPAIR
     name: Repair Factory
-    production_time: 30s
+# need to fix when gotten to fuel_consumption_intervall: 2s
+    production_time: 32s
     input:
-#      eye of ender:
-#        material: EYE_OF_ENDER 
-#        lore:
-#         - Essence
-#        enchants:
-#          dura:
-#            enchant: DURABILITY
-#        amount: 1
        emerald:
          material: DIRT
          amount: 3
@@ -4368,21 +4359,21 @@ recipes:
         amount: 384
     factory: Bio Lab
   Upgrade_to_Blacksmith:
-    production_time: 10m
+    production_time: 32s
     type: UPGRADE
     name: Upgrade to Blacksmith
-    fuel_consumption_intervall: 20s
+    fuel_consumption_intervall: 2s
     input:
       stone:
-        material: COBBLESTONE
-        amount: 512
+        material: STONE
+        amount: 256
       iron:
         material: IRON_INGOT
-        amount: 24
+        amount: 30
       wood:
         material: WOOD
         durability: -1
-        amount: 512
+        amount: 256
     factory: Blacksmith
   Upgrade_to_Brick_Smelter:
     production_time: 900s
@@ -4558,23 +4549,17 @@ recipes:
         amount: 128
     factory: Diamond Tools Forge
   Upgrade_to_Farmstead_Factory:
-    production_time: 10m
+    production_time: 32s
     type: UPGRADE
     name: Upgrade to Farmstead Factory
-    fuel_consumption_intervall: 20s
+    fuel_consumption_intervall: 2s
     input:
       wheat:
         material: BREAD
-        amount: 192
+        amount: 64
       potato:
-        material: BAKED_POTATO
-        amount: 256
-      chicken:
-        material: COOKED_CHICKEN
-        amount: 96
-      beef:
-        material: GRILLED_PORK
-        amount: 96
+        material: POTATO_ITEM
+        amount: 64
     factory: Farmstead Factory
   Upgrade_to_Fine_Woodworking:
     production_time: 900s
@@ -4899,17 +4884,17 @@ recipes:
         amount: 16
     factory: Kiln
   Upgrade_to_Laboratory:
-    production_time: 10m
+    production_time: 32s
     type: UPGRADE
     name: Upgrade to Laboratory
-    fuel_consumption_intervall: 20s
+    fuel_consumption_intervall: 2s
     input:
-      cauldron:
+      redstone:
         material: REDSTONE
-        amount: 256
+        amount: 64
       glass bottle:
         material: CAULDRON_ITEM
-        amount: 32
+        amount: 4
     factory: Laboratory
   Upgrade_to_Netherbrick_Smelter:
     production_time: 1h
@@ -5140,14 +5125,20 @@ recipes:
         amount: 8
     factory: Soup kitchen
   Upgrade_to_Stone_Smelter:
-    production_time: 10m
+    production_time: 32s
     type: UPGRADE
     name: Upgrade to Stone Smelter
-    fuel_consumption_intervall: 20s
+    fuel_consumption_intervall: 2s
     input:
       stone:
         material: STONE
-        amount: 640
+        amount: 400
+      sand:
+        material: SAND
+        amount: 64
+      coal:
+        material: COAL
+        amount: 16
     factory: Stone Smelter
   Upgrade_to_Stonebrick_Smelter:
     production_time: 1800s
@@ -5182,7 +5173,7 @@ recipes:
     fuel_consumption_intervall: 20s
     input:
       planks:
-        material: LOG
+        material: WOOD
         durability: -1
         amount: 512
     factory: Wood Processor
