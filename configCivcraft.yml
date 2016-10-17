@@ -38,7 +38,7 @@ factories:
     - Cut_any_type_of_Plank_Basic
     - Bake_Bread_Basic
     - Burn_Charcoal_from_Logs_Basic
-    - Repair_Rudimentary_Factory
+    - Repair_Basic_Contraption
     - Upgrade_to_Stone_Smelter
     - Upgrade_to_Farmstead_Factory
     - Upgrade_to_Blacksmith
@@ -55,7 +55,7 @@ factories:
     - Smelt_Stone_Advanced
     - Smelt_Coal_Ore_Basic
     - Smelt_Glass_Basic
-    - Repair_Rudimentary_Factory
+    - Repair_Stone_Smelter
     - Upgrade_to_Ore_Smelter
     - Upgrade_to_Sand_Smelter
     - Upgrade_to_Brick_Smelter
@@ -272,7 +272,7 @@ factories:
     - Burn_Charcoal_from_Logs_Advanced
     - Craft_Oak_Fence
     - Cut_any_type_of_Plank_Advanced
-    - Repair_Rudimentary_Factory
+    - Repair_Wood_Processor
     - Upgrade_to_Carpentry
     - Upgrade_to_Fine_Woodworking
     - Upgrade_to_Coal_Burner
@@ -312,7 +312,7 @@ factories:
     - Bake_Bread_Advanced
     - Grill_Steak_Basic
     - Create_Poppy_Basic
-    - Repair_Rudimentary_Factory
+    - Repair_Farmstead_Factory
     - Upgrade_to_Bakery
     - Upgrade_to_Grill
     - Upgrade_to_Soup_kitchen
@@ -435,7 +435,7 @@ factories:
     - Forge_Stone_Shovel
     - Forge_Stone_Hoe
     - Forge_Stone_Axe
-    - Repair_Small_Factory
+    - Repair_Blacksmith
     - Upgrade_to_Iron_Forge_Basic
     - Upgrade_to_Iron_Equipment_Forge
   ironforgebasic:
@@ -553,7 +553,7 @@ factories:
     recipes:
     - Craft_Redstone_Repeater_Basic
     - Craft_Dispenser_Basic
-    - Repair_Small_Factory
+    - Repair_Laboratory
     - Upgrade_to_Bastion_Factory
     - Upgrade_to_Compactor_Basic
     - Upgrade_to_Printing_Press
@@ -679,6 +679,7 @@ factories:
      - Enchant_Unbreaking_Shovel_Basic
      - Enchant_Unbreaking_Sword_Basic
      - Enchant_Sharpness_Basic
+     - Repair_Basic_Forge
      - Upgrade_to_Ember_Forge
      - Upgrade_to_River_Forge
      - Upgrade_to_Magic_Forge
@@ -687,7 +688,6 @@ factories:
      - Upgrade_to_Dagger_Forge
      - Upgrade_to_Quick_Forge
      - Upgrade_to_Rock_Forge
-     - Repair_Factory
 #Fire
   emberforge:
     type: FCCUPGRADE
@@ -4375,6 +4375,23 @@ recipes:
         durability: -1
         amount: 256
     factory: Blacksmith
+  Repair_Blacksmith:
+    type: REPAIR
+    name: Repair Blacksmith
+    fuel_consumption_intervall: 2s
+    production_time: 30s
+    input:
+      stone:
+        material: STONE
+        amount: 25
+      iron:
+        material: IRON_INGOT
+        amount: 3
+      wood:
+        material: WOOD
+        durability: -1
+        amount: 25
+    health_gained: 4000
   Upgrade_to_Brick_Smelter:
     production_time: 900s
     type: UPGRADE
@@ -4561,6 +4578,19 @@ recipes:
         material: POTATO_ITEM
         amount: 64
     factory: Farmstead Factory
+  Repair_Farmstead_Factory:
+    type: REPAIR
+    name: Repair Farmstead Factory
+    fuel_consumption_intervall: 2s
+    production_time: 30s
+    input:
+      wheat:
+        material: BREAD
+        amount: 6
+      potato:
+        material: POTATO_ITEM
+        amount: 6
+    health_gained: 4000
   Upgrade_to_Fine_Woodworking:
     production_time: 900s
     type: UPGRADE
@@ -4892,10 +4922,23 @@ recipes:
       redstone:
         material: REDSTONE
         amount: 64
-      glass bottle:
+      cauldron:
         material: CAULDRON_ITEM
         amount: 4
     factory: Laboratory
+  Repair_Laboratory:
+    type: REPAIR
+    name: Repair Laboratory
+    fuel_consumption_intervall: 2s
+    production_time: 30s
+    input:
+      redstone:
+        material: REDSTONE
+        amount: 6
+      iron ingot:
+        material: IRON_INGOT
+        amount: 3
+    health_gained: 4000
   Upgrade_to_Netherbrick_Smelter:
     production_time: 1h
     type: UPGRADE
@@ -5140,6 +5183,22 @@ recipes:
         material: COAL
         amount: 16
     factory: Stone Smelter
+  Repair_Stone_Smelter:
+    type: REPAIR
+    name: Repair Stone Smelter
+    fuel_consumption_intervall: 2s
+    production_time: 30s
+    input:
+      stone:
+        material: STONE
+        amount: 40
+      sand:
+        material: SAND
+        amount: 6
+      coal:
+        material: COAL
+        amount: 2
+    health_gained: 4000
   Upgrade_to_Stonebrick_Smelter:
     production_time: 1800s
     type: UPGRADE
@@ -5177,6 +5236,17 @@ recipes:
         durability: -1
         amount: 512
     factory: Wood Processor
+  Repair_Wood_Processor:
+    type: REPAIR
+    name: Repair Wood Processor
+    fuel_consumption_intervall: 2s
+    production_time: 30s
+    input:
+      planks:
+        material: WOOD
+        durability: -1
+        amount: 51
+    health_gained: 4000
   Upgrade_to_Wool_Processing:
     production_time: 1800s
     type: UPGRADE
@@ -7042,6 +7112,16 @@ recipes:
       emeralds:
         material: EMERALD
         amount: 100
+  Repair_Basic_Forge:
+    type: REPAIR
+    name: Repair Basic Forge
+    fuel_consumption_intervall: 2s
+    production_time: 30s
+    input:
+      emeralds:
+        material: EMERALD
+        amount: 10
+    health_gained: 4000
   Upgrade_to_Ember_Forge:
     production_time: 1h
     type: UPGRADE
