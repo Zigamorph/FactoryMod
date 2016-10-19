@@ -55,6 +55,7 @@ factories:
     - Smelt_Stone_Advanced
     - Smelt_Coal_Ore_Basic
     - Smelt_Glass_Basic
+    - Smelt_Brick_Basic
     - Repair_Stone_Smelter
     - Upgrade_to_Ore_Smelter
     - Upgrade_to_Sand_Smelter
@@ -72,11 +73,10 @@ factories:
     - Extract_Redstone_Basic
     - Extract_Quartz_Basic
     - Repair_Factory
-    - Upgrade_to_Ore_Forge
-    - Upgrade_to_Gem_Extractor
-    - Break_Fossil_Basic
+    - Upgrade_to_Ore_Smelter_2
+    
   oresmelter2:
-    #Basic Contraption --> Stone Smelter --> Ore Smelter --> Ore Forge
+    #Basic Contraption --> Stone Smelter --> Ore Smelter --> Ore Smelter Level 2
     type: FCCUPGRADE
     name: Ore Forge
     recipes:
@@ -84,18 +84,6 @@ factories:
     - Smelt_Iron_Ore_Advanced
     - Smelt_Gold_Ore
     - Craft_Cave_Concentrate
-    - Break_Fossil_Advanced
-    - Repair_Advanced_Factory
-  gemextractor:
-    #Basic Contraption --> Stone Smelter --> Ore Smelter --> Gem Extractor
-    type: FCCUPGRADE
-    name: Gem Extractor
-    recipes:
-    - Extract_Diamonds
-    - Extract_Emeralds
-    - Extract_Quartz_Advanced
-    - Extract_Redstone_Advanced
-    - Extract_Lapis
     - Break_Fossil_Advanced
     - Repair_Advanced_Factory
     
@@ -3794,15 +3782,15 @@ recipes:
   Smelt_Coal_Ore_Basic:
     type: PRODUCTION
     name: Smelt Coal Ore
-    production_time: 16s
+    production_time: 15s
     input:
       coal ore:
         material: COAL_ORE
-        amount: 64
+        amount: 32
     output:
       coal:
         material: COAL
-        amount: 80
+        amount: 48
   Smelt_Coal_Ore_Advanced:
     type: PRODUCTION
     name: Smelt Coal Ore Advanced
@@ -3855,6 +3843,19 @@ recipes:
       glass:
         material: GLASS
         amount: 128
+  Smelt_Brick_Basic:
+    type: PRODUCTION
+    name: Smelt Bricks
+    production_time: 15s
+    input: 
+      clay:
+        material: CLAY
+        amount: 48
+    output:
+      brick:
+        material: BRICK
+        amount: 64
+        
   Smelt_Glass_Basic:
     type: PRODUCTION
     name: Smelt Glass
@@ -3862,11 +3863,11 @@ recipes:
     input:
       sand:
         material: SAND
-        amount: 64
+        amount: 32
     output:
       glass:
         material: GLASS
-        amount: 96
+        amount: 56
   Smelt_Glass_Expert:
     type: PRODUCTION
     name: Smelt Glass
@@ -4142,7 +4143,7 @@ recipes:
   Smelt_Stone_Advanced:
     type: PRODUCTION
     name: Smelt Stone
-    production_time: 35s
+    production_time: 20s
     input:
       sobblestone:
         material: COBBLESTONE
@@ -4150,7 +4151,7 @@ recipes:
     output:
       stone:
         material: STONE
-        amount: 320
+        amount: 384
   Smelt_Stone_Basic:
     type: PRODUCTION
     name: Smelt Stone
@@ -4401,13 +4402,16 @@ recipes:
       char:
         material: COAL
         durability: 1
-        amount: 512
+        amount: 128
       stone:
         material: STONE
-        amount: 2048
+        amount: 1024
       pickaxe:
+        material: IRON_PICKAXE
+        amount: 6
+      pickaxed:
         material: DIAMOND_PICKAXE
-        amount: 8
+        amount: 2
     factory: Brick Smelter
   Upgrade_to_Carpentry:
     production_time: 900s
@@ -4618,25 +4622,6 @@ recipes:
         material: DIRT
         amount: 512
     factory: Flower Gardening
-  Upgrade_to_Gem_Extractor:
-    production_time: 4h
-    type: UPGRADE
-    name: Upgrade to Gem Extractor
-    fuel_consumption_intervall: 2m
-    input:
-      diamond:
-        material: DIAMOND_BLOCK
-        amount: 64
-      quartz:
-        material: QUARTZ
-        amount: 2048
-      lapis:
-        material: LAPIS_BLOCK
-        amount: 256
-      redstone:
-        material: REDSTONE_BLOCK
-        amount: 256
-    factory: Gem Extractor
   Upgrade_to_Glass_Dying_Factory:
     production_time: 1h
     type: UPGRADE
@@ -4957,37 +4942,41 @@ recipes:
       
     factory: Netherbrick Smelter
   Upgrade_to_Ore_Smelter:
-    production_time: 900s
+    production_time: 600s
+    # fix if needed
     type: UPGRADE
     name: Upgrade to Ore Smelter
-    fuel_consumption_intervall: 8s
+    fuel_consumption_intervall: 25s
     input:
       iron ingot:
-        material: IRON_BLOCK
-        amount: 96
+        material: IRON_INGOT
+        amount: 128
       coal:
         material: COAL_BLOCK
         amount: 192
-      redstone:
-        material: REDSTONE_BLOCK
-        amount: 48
     factory: Ore Smelter
-  Upgrade_to_Ore_Forge:
-    production_time: 4h
+  Upgrade_to_Ore_Smelter_2:
+    production_time: 210m
     type: UPGRADE
-    name: Upgrade to Ore Forge
-    fuel_consumption_intervall: 2m
+    name: Upgrade to Ore Smelter Level 2
+    fuel_consumption_intervall: 252s
     input:
-      iron ingot:
+      diamond:
+        material: DIAMOND
+        amount: 128
+      quartz:
+        material: QUARTZ
+        amount: 480
+      redstone:
+        material: REDSTONE
+        amount: 600
+      ironblocks:
         material: IRON_BLOCK
-        amount: 384
-      gold ingot:
-        material: GOLD_BLOCK
-        amount: 192
-      coal:
+        amount: 20
+      coalblocks:
         material: COAL_BLOCK
-        amount: 512
-    factory: Ore Forge
+        amount: 40
+    factory: Ore Smelter Level 2
   Upgrade_to_Organic_Block_Factory:
     production_time: 1800s
     type: UPGRADE
@@ -5104,14 +5093,17 @@ recipes:
         durability: -1
     factory: Redstone Mechanics
   Upgrade_to_Sand_Smelter:
-    production_time: 20m
+    production_time: 7m
     type: UPGRADE
     name: Upgrade to Sand Smelter
-    fuel_consumption_intervall: 30s
+    fuel_consumption_intervall: 17.5s
     input:
       sand:
         material: SAND
-        amount: 1536
+        amount: 384
+      sandstone:
+        material: SANDSTONE
+        amount: 64
     factory: Sand Smelter
   Upgrade_to_Glass_Blowing_Workshop:
     production_time: 2h
@@ -5259,28 +5251,26 @@ recipes:
     factory: Wool Processing
   Upgrade_to_Fancy_Stone_Smelter:
     name: Upgrade to Fancy Stone Smelter
-    production_time: 20m
+    production_time: 10m
     type: UPGRADE
-    fuel_consumption_intervall: 30s
+    fuel_consumption_intervall: 25s
     factory: Fancy Stone Smelter
     input:
       stone:
         material: STONE
-        amount: 108
-        lore:
-         - Compacted Item
-      otherstone:
+        amount: 512
+      granite:
         material: STONE
         durability: 1
-        amount: 1024
-      idontevenknowwhatthisoneiscalled:
+        amount: 128
+      diorite:
         material: STONE
         durability: 3
-        amount: 1024
-      morestoneIguess:
+        amount: 128
+      andesite:
         material: STONE
         durability: 5
-        amount: 1024
+        amount: 128
   Upgrade_to_Crystallization_Factory:
     production_time: 10m
     type: UPGRADE
@@ -6688,4 +6678,3 @@ recipes:
         material: DIRT
         
 renames:
-
