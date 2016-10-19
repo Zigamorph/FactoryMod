@@ -12,6 +12,8 @@ decay_amount: 21
 use_recipe_yamlidentifiers: true
 global_pylon_limit: 100
 
+# Up Next: Changes to non-ore based factories that branch from stone smelter
+# Still To Do: The other branches that aren't the stone smelter branch
 
 factories:
 
@@ -72,7 +74,7 @@ factories:
     - Smelt_Iron_Ore_Basic
     - Extract_Redstone_Basic
     - Extract_Quartz_Basic
-    - Repair_Factory
+    - Repair_Ore_Smelter
     - Upgrade_to_Ore_Smelter_2
     
   oresmelter2:
@@ -82,10 +84,13 @@ factories:
     recipes:
     - Smelt_Coal_Ore_Expert
     - Smelt_Iron_Ore_Advanced
-    - Smelt_Gold_Ore
-    - Craft_Cave_Concentrate
-    - Break_Fossil_Advanced
-    - Repair_Advanced_Factory
+    - Smelt_Gold_Ore_Advanced
+    - Extract_Diamonds
+    - Extract_Emeralds
+    - Extract_Quartz_Advanced
+    - Extract_Lapis
+#    - Craft_Cave_Concentrate
+    - Repair_Ore_Smelter_2
     
   #Sand smelting
   sandsmelter:
@@ -1198,7 +1203,7 @@ factories:
     
 recipes:
 
-  Repair_Rudimentary_Factory:
+  Repair_Basic_Contraption_Factory:
     type: REPAIR
     name: Repair Factory
     fuel_consumption_intervall: 2s
@@ -2777,7 +2782,7 @@ recipes:
   Extract_Diamonds:
     type: PRODUCTION
     name: Extract Diamonds
-    production_time: 10s
+    production_time: 15s
     input:
       diamond ore:
         material: DIAMOND_ORE
@@ -2785,11 +2790,11 @@ recipes:
     output:
       diamond:
         material: DIAMOND
-        amount: 24
+        amount: 30
   Extract_Emeralds:
     type: PRODUCTION
     name: Extract Emeralds
-    production_time: 5s
+    production_time: 25s
     input:
       emerald ore:
         material: EMERALD_ORE
@@ -2801,7 +2806,7 @@ recipes:
   Extract_Lapis:
     type: PRODUCTION
     name: Extract Lapis
-    production_time: 8s
+    production_time: 30s
     input:
       lapis ore:
         material: LAPIS_ORE
@@ -2810,11 +2815,23 @@ recipes:
       lapis:
         material: INK_SACK
         durability: 4
-        amount: 64
+        amount: 128
   Extract_Quartz_Advanced:
     type: PRODUCTION
     name: Extract Quartz
-    production_time: 8s
+    production_time: 15s
+    input:
+      quartz ore:
+        material: QUARTZ_ORE
+        amount: 64
+    output:
+      quartz:
+        material: QUARTZ
+        amount: 312
+  Extract_Quartz_Basic:
+    type: PRODUCTION
+    name: Extract Quartz
+    production_time: 15s
     input:
       quartz ore:
         material: QUARTZ_ORE
@@ -2823,22 +2840,10 @@ recipes:
       quartz:
         material: QUARTZ
         amount: 128
-  Extract_Quartz_Basic:
-    type: PRODUCTION
-    name: Extract Quartz
-    production_time: 10s
-    input:
-      quartz ore:
-        material: QUARTZ_ORE
-        amount: 32
-    output:
-      quartz:
-        material: QUARTZ
-        amount: 96
   Extract_Redstone_Advanced:
     type: PRODUCTION
     name: Extract Redstone
-    production_time: 15s
+    production_time: 10s
     input:
       redstone ore:
         material: REDSTONE_ORE
@@ -2846,7 +2851,7 @@ recipes:
     output:
       redstone dust:
         material: REDSTONE
-        amount: 192
+        amount: 312
   Extract_Redstone_Basic:
     type: PRODUCTION
     name: Extract Redstone
@@ -3798,7 +3803,7 @@ recipes:
     input:
       coal ore:
         material: COAL_ORE
-        amount: 128
+        amount: 96
     output:
       coal:
         material: COAL
@@ -3810,11 +3815,11 @@ recipes:
     input:
       coal ore:
         material: COAL_ORE
-        amount: 256
+        amount: 128
     output:
       coal:
         material: COAL
-        amount: 640
+        amount: 512
   Smelt_Dark_Prismarine:
     type: PRODUCTION
     name: Smelt Dark Prismarine
@@ -3916,30 +3921,43 @@ recipes:
       glass bottle:
         material: GLASS_BOTTLE
         amount: 128
-  Smelt_Gold_Ore:
+  Smelt_Gold_Ore_Basic:
     type: PRODUCTION
     name: Smelt Gold Ore
-    production_time: 10s
+    production_time: 20s
     input:
       gold ore:
         material: GOLD_ORE
-        amount: 16
+        amount: 32
     output:
       gold ingot:
         material: GOLD_INGOT
-        amount: 32
+        amount: 48
+  Smelt_Gold_Ore_Advanced:
+    type: PRODUCTION
+    name: Smelt Gold Ore
+    production_time: 40s
+    input:
+       gold ore:
+        material: GOLD_ORE
+        amount: 64
+    output:
+       gold ingot:
+        material: GOLD_INGOT
+        amount: 128
+    
   Smelt_Iron_Ore_Advanced:
     type: PRODUCTION
     name: Smelt Iron Ore
-    production_time: 15s
+    production_time: 40s
     input:
       iron ore:
         material: IRON_ORE
-        amount: 64
+        amount: 84
     output:
       iron ingot:
         material: IRON_INGOT
-        amount: 110
+        amount: 192
   Smelt_Iron_Ore_Basic:
     type: PRODUCTION
     name: Smelt Iron Ore
@@ -6667,8 +6685,44 @@ recipes:
             
 
         
-#Destroy factory and returns the setup cost multiplied by a given factor
-  Return_Materials:
+
+        
+        #Destroy factory and returns the setup cost multiplied by a given factor
+
+  Repair_Ore_Smelter:
+    name: Repair Ore Smelter
+    type: REPAIR
+    production_time: 1m
+    fuel_consumption_intervall: 5s
+    input:
+        iron:
+           material: IRON_INGOT
+           amount: 12
+        coal:
+           material: COAL
+           amount: 20
+    health_gained: 4000
+  Repair_Ore_Smelter_2
+    name: Repair Ore Smelter Lvl 2
+    type: REPAIR
+    production_time: 2m
+    fuel_consumption_intervall: 5s
+    input:
+        diamond:
+           material: DIAMOND
+           amount: 12
+        quartz:
+           material: QUARTZ
+           amount: 48
+        redstone:
+           material: REDSTONE
+           amount: 60
+        lapis:
+           material: INK_SACK
+           durability: 4
+           amount: 60
+    health_gained: 4000
+   Return_Materials:
     type: COSTRETURN
     production_time: 10s
     name: Destroy Factory
