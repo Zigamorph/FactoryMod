@@ -1203,9 +1203,9 @@ factories:
     
 recipes:
 
-  Repair_Basic_Contraption_Factory:
+  Repair_Basic_Contraption:
     type: REPAIR
-    name: Repair Factory
+    name: Repair Basic Contraption
     fuel_consumption_intervall: 2s
     production_time: 30s
     input:
@@ -1222,11 +1222,12 @@ recipes:
 #         amount: 1
         stone:
             material: STONE
-            amount: 64
+            amount: 6
         wood:
             material: WOOD
-            amount: 32
-    health_gained: 1500
+            durability: -1
+            amount: 25
+    health_gained: 4000
   Repair_Small_Factory:
     type: REPAIR
     name: Repair Factory
@@ -4303,22 +4304,16 @@ recipes:
     input:
       bread:
         material: BREAD
-        amount: 102
-      cake:
-        material: CAKE
-        amount: 1
+        amount: 100
       pumpkinpie:
         material: PUMPKIN_PIE
         amount: 25
       baked potato:
         material: BAKED_POTATO
-        amount: 102
+        amount: 100
       cookie:
         material: COOKIE
-        amount: 38
-      fire:
-        material: FLINT_AND_STEEL
-        amount: 1
+        amount: 35
     health_gained: 4000
   Upgrade_to_Bastion_Factory:
     production_time: 1d
@@ -4465,16 +4460,13 @@ recipes:
       char:
         material: COAL
         durability: 1
-        amount: 13
+        amount: 12
       stone:
         material: STONE
-        amount: 102
+        amount: 100
       ironingots:
         material: IRON_INGOT
         amount: 2
-      diamond:
-        material: DIAMOND
-        amount: 1
     health_gained: 4000
   Upgrade_to_Carpentry:
     production_time: 900s
@@ -4891,29 +4883,26 @@ recipes:
     input:
       beef:
         material: COOKED_BEEF
-        amount: 77
+        amount: 75
       pork:
         material: GRILLED_PORK
-        amount: 77
+        amount: 75
       mutton:
         material: COOKED_MUTTON
-        amount: 13
+        amount: 12
       chicken:
         material: COOKED_CHICKEN
-        amount: 51
+        amount: 50
       fish:
         material: COOKED_FISH
         amount: 25
       salmon:
         material: COOKED_FISH
-        amount: 6
+        amount: 5
         durability: 1
       rabbit:
         material: COOKED_RABBIT
-        amount: 13
-      fire:
-        material: FLINT_AND_STEEL
-        amount: 1
+        amount: 12
     health_gained: 4000
   Upgrade_to_Iron_Equipment_Forge:
     production_time: 900s
@@ -5241,7 +5230,7 @@ recipes:
     input:
       sand:
         material: SAND
-        amount: 38
+        amount: 35
       sandstone:
         material: SANDSTONE
         amount: 6
@@ -5420,19 +5409,19 @@ recipes:
     input:
       stone:
         material: STONE
-        amount: 51
+        amount: 50
       granite:
         material: STONE
         durability: 1
-        amount: 13
+        amount: 12
       diorite:
         material: STONE
         durability: 3
-        amount: 13
+        amount: 12
       andesite:
         material: STONE
         durability: 5
-        amount: 13
+        amount: 12
     health_gained: 4000
   Upgrade_to_Crystallization_Factory:
     production_time: 10m
