@@ -103,7 +103,7 @@ factories:
     - Smelt_Sandstone_Basic
     - Smelt_Red_Sandstone_Basic
     - Convert_Normal_Sand_to_Red_Sand
-    - Repair_Small_Factory
+    - Repair_Sand_Smelter
     - Upgrade_to_Glass_Blowing_Workshop
     - Upgrade_to_Sandstone_Smelter
     - Upgrade_to_Glass_Dying_Factory
@@ -184,7 +184,7 @@ factories:
     - Craft_Stonebricks_Basic
     - Craft_Prismarine_Basic
     - Craft_Netherbrick_Basic
-    - Repair_Small_Factory
+    - Repair_Brick_Smelter
     - Upgrade_to_Stonebrick_Smelter
     - Upgrade_to_Netherbrick_Smelter
     - Upgrade_to_Aquatic_Brick_Smelter
@@ -199,7 +199,7 @@ factories:
     - Craft_Polished_Andesite
     - Craft_Polished_Diorite
     - Craft_Polished_Granite
-    - Repair_Factory
+    - Repair_Fancy_Stone_Smelter
   stonebricksmelter:
     #Basic Contraption --> Stone Smelter --> Brick Smelter --> Stonebrick Smelter
     type: FCCUPGRADE
@@ -323,7 +323,7 @@ factories:
     - Bake_Cake
     - Bake_Pumpkin_Pie
     - Bake_Food_Concentrate
-    - Repair_Factory
+    - Repair_Bakery
   grill:
     type: FCCUPGRADE
     name: Grill
@@ -335,7 +335,7 @@ factories:
     - Cook_Fish
     - Cook_Mutton
     - Cook_Rabbit
-    - Repair_Small_Factory
+    - Repair_Grill
   stewmaker:
     type: FCCUPGRADE
     name: Soup kitchen
@@ -4295,6 +4295,31 @@ recipes:
         material: FLINT_AND_STEEL
         amount: 8
     factory: Bakery
+  Repair_Bakery:
+    production_time: 1m
+    type: REPAIR
+    name: Repair Bakery
+    fuel_consumption_intervall: 5s
+    input:
+      bread:
+        material: BREAD
+        amount: 102
+      cake:
+        material: CAKE
+        amount: 1
+      pumpkinpie:
+        material: PUMPKIN_PIE
+        amount: 25
+      baked potato:
+        material: BAKED_POTATO
+        amount: 102
+      cookie:
+        material: COOKIE
+        amount: 38
+      fire:
+        material: FLINT_AND_STEEL
+        amount: 1
+    health_gained: 4000
   Upgrade_to_Bastion_Factory:
     production_time: 1d
     type: UPGRADE
@@ -4431,6 +4456,26 @@ recipes:
         material: DIAMOND_PICKAXE
         amount: 2
     factory: Brick Smelter
+  Repair_Brick_Smelter:
+    production_time: 1m
+    type: REPAIR
+    name: Repair Brick Smelter
+    fuel_consumption_intervall: 5s
+    input:
+      char:
+        material: COAL
+        durability: 1
+        amount: 13
+      stone:
+        material: STONE
+        amount: 102
+      ironingots:
+        material: IRON_INGOT
+        amount: 2
+      diamond:
+        material: DIAMOND
+        amount: 1
+    health_gained: 4000
   Upgrade_to_Carpentry:
     production_time: 900s
     type: UPGRADE
@@ -4838,6 +4883,38 @@ recipes:
         material: FLINT_AND_STEEL
         amount: 8
     factory: Grill
+  Repair_Grill:
+    production_time: 1m
+    type: REPAIR
+    name: Repair Grill
+    fuel_consumption_intervall: 5s
+    input:
+      beef:
+        material: COOKED_BEEF
+        amount: 77
+      pork:
+        material: GRILLED_PORK
+        amount: 77
+      mutton:
+        material: COOKED_MUTTON
+        amount: 13
+      chicken:
+        material: COOKED_CHICKEN
+        amount: 51
+      fish:
+        material: COOKED_FISH
+        amount: 25
+      salmon:
+        material: COOKED_FISH
+        amount: 6
+        durability: 1
+      rabbit:
+        material: COOKED_RABBIT
+        amount: 13
+      fire:
+        material: FLINT_AND_STEEL
+        amount: 1
+    health_gained: 4000
   Upgrade_to_Iron_Equipment_Forge:
     production_time: 900s
     type: UPGRADE
@@ -4973,6 +5050,19 @@ recipes:
         material: COAL_BLOCK
         amount: 192
     factory: Ore Smelter
+  Repair_Ore_Smelter:
+    name: Repair Ore Smelter
+    type: REPAIR
+    production_time: 1m
+    fuel_consumption_intervall: 5s
+    input:
+        iron:
+           material: IRON_INGOT
+           amount: 12
+        coal:
+           material: COAL
+           amount: 20
+    health_gained: 4000
   Upgrade_to_Ore_Smelter_2:
     production_time: 210m
     type: UPGRADE
@@ -4995,6 +5085,26 @@ recipes:
         material: COAL_BLOCK
         amount: 40
     factory: Ore Smelter Level 2
+  Repair_Ore_Smelter_2:
+    name: Repair Ore Smelter Lvl 2
+    type: REPAIR
+    production_time: 2m
+    fuel_consumption_intervall: 5s
+    input:
+        diamond:
+           material: DIAMOND
+           amount: 12
+        quartz:
+           material: QUARTZ
+           amount: 48
+        redstone:
+           material: REDSTONE
+           amount: 60
+        lapis:
+           material: INK_SACK
+           durability: 4
+           amount: 60
+    health_gained: 4000
   Upgrade_to_Organic_Block_Factory:
     production_time: 1800s
     type: UPGRADE
@@ -5123,6 +5233,19 @@ recipes:
         material: SANDSTONE
         amount: 64
     factory: Sand Smelter
+  Repair_Sand_Smelter:
+    production_time: 1m
+    type: REPAIR
+    name: Repair Sand Smelter
+    fuel_consumption_intervall: 5s
+    input:
+      sand:
+        material: SAND
+        amount: 38
+      sandstone:
+        material: SANDSTONE
+        amount: 6
+    health_gained: 4000
   Upgrade_to_Glass_Blowing_Workshop:
     production_time: 2h
     type: UPGRADE
@@ -5289,6 +5412,28 @@ recipes:
         material: STONE
         durability: 5
         amount: 128
+  Repair_Fancy_Stone_Smelter:
+    name: Repair Fancy Stone Smelter
+    production_time: 1m
+    type: REPAIR
+    fuel_consumption_intervall: 5s
+    input:
+      stone:
+        material: STONE
+        amount: 51
+      granite:
+        material: STONE
+        durability: 1
+        amount: 13
+      diorite:
+        material: STONE
+        durability: 3
+        amount: 13
+      andesite:
+        material: STONE
+        durability: 5
+        amount: 13
+    health_gained: 4000
   Upgrade_to_Crystallization_Factory:
     production_time: 10m
     type: UPGRADE
@@ -6681,54 +6826,4 @@ recipes:
           dura:
             enchant: DURABILITY
 
-            
-            
-
-        
-
-        
-        #Destroy factory and returns the setup cost multiplied by a given factor
-
-  Repair_Ore_Smelter:
-    name: Repair Ore Smelter
-    type: REPAIR
-    production_time: 1m
-    fuel_consumption_intervall: 5s
-    input:
-        iron:
-           material: IRON_INGOT
-           amount: 12
-        coal:
-           material: COAL
-           amount: 20
-    health_gained: 4000
-  Repair_Ore_Smelter_2
-    name: Repair Ore Smelter Lvl 2
-    type: REPAIR
-    production_time: 2m
-    fuel_consumption_intervall: 5s
-    input:
-        diamond:
-           material: DIAMOND
-           amount: 12
-        quartz:
-           material: QUARTZ
-           amount: 48
-        redstone:
-           material: REDSTONE
-           amount: 60
-        lapis:
-           material: INK_SACK
-           durability: 4
-           amount: 60
-    health_gained: 4000
-   Return_Materials:
-    type: COSTRETURN
-    production_time: 10s
-    name: Destroy Factory
-    factor: 1.0
-    input:
-      dirt:
-        material: DIRT
-        
 renames:
